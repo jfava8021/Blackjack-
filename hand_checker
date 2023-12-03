@@ -3,11 +3,11 @@
 def check_hand(hand):
   sum_hand = sum(hand)
   if sum_hand <= 21:
-    return sum_hand
+    print(sum_hand)
   elif (hand[0] == 11 or hand[1] == 11 or hand[2] == 11) and sum_hand > 21:
 #### Optional elif adjustment: elif 11 in hand and sum_hand > 21
-    return sum_hand - 11
+    print(sum_hand - 11)
   else:
-    return "BUST"
+    print("BUST")
 
   
