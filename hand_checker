@@ -4,6 +4,8 @@ def check_hand(hand):
   sum_hand = sum(hand)
   if sum_hand <= 21:
     print(sum_hand)
+  elif hand[0] == 11 and hand[1] == 11 and hand[2] == 11:
+    print(13) 
   elif (hand[0] == 11 or hand[1] == 11 or hand[2] == 11) and sum_hand > 21:
 #### Optional elif adjustment: elif 11 in hand and sum_hand > 21
     print(sum_hand - 11)
