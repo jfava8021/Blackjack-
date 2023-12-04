@@ -1,14 +1,24 @@
-###Given 3 integers between 1 and 11, if their sum is less than or equal to 21, return their sum. If their sum exceeds 21 and there's an eleven, reduce the total sum by 10. Finally, if the sum (even after adjustment) exceeds 21, return "BUST"
+###Given 3 integers between 1 and 11, if their sum is less than or equal to 21, 
+###return their sum. If their sum exceeds 21 and there's an eleven, reduce the total
+###sum by 10. Finally, if the sum (even after adjustment) exceeds 21, return "BUST"
 
 def check_hand(hand):
   sum_hand = sum(hand)
   if sum_hand <= 21:
     print(sum_hand)
-  elif hand[0] == 11 and hand[1] == 11 and hand[2] == 11:
-    print(13) 
-  elif (hand[0] == 11 or hand[1] == 11 or hand[2] == 11) and sum_hand > 21:
-#### Optional elif adjustment: elif 11 in hand and sum_hand > 21
-    print(sum_hand - 11)
+  elif hand.count(11) > 1:
+    check_aces(hand)
+  elif 11 in hand and sum_hand > 21:
+    print(sum_hand - 10)
+  else:
+   print("BUST")
+
+### check_aces needed in case of multiple 11's in hand 
+def check_aces(hand):
+  if hand.count(11) == 2 and 10 not in hand:
+    print(sum(hand) - 10)
+  elif hand.count(11) == 3:
+    print(13)
   else:
     print("BUST")
 
